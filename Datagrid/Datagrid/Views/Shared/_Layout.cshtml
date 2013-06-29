@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - ASP.NET SignalR</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/bootstrap")
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" style="color: white;" href="#">List of Customers</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        @RenderBody()
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/knockoutjs")
+    @Scripts.Render("~/bundles/signalr")
+    <script type="text/javascript" src="~/signalr/hubs"></script>
+    @Scripts.Render("~/bundles/application")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

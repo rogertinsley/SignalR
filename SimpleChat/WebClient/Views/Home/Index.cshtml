@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Chat</h2>
+
+<label for="message">Message:</label><input type="text" id="message" />
+<input type="button" id="send" value="Send message" />
+
+
+<ul id="messages"></ul>
+
+@section scripts
+{
+    <script>
+
+        // Declare a proxy to reference the hub. 
+        var chat = $.connection.chat;
+        chat.client.newMessage = onNewMessage;
+
+        function onNewMessage(message) {
+            //  validation !!!! :)
+            $('#messages').append('<li>' + message + '</li>');
+        };
+        
+        function onSend() {
+            chat.server.sendMessage($('#message').val());
+        };
+
+        $.connection.hub.start().done(function() {
+            $('#send').click(onSend);
+        });
+
+    </script>
+}

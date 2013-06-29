@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>My favourite artists</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Artist Id</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: artists">
+        <tr>
+            <td data-bind="text: id"></td>
+            <td data-bind="text: name"></td>
+        </tr>
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script src="~/Scripts/jquery.signalR-1.1.2.js"></script>
+    <script src="~/Scripts/js/dataservices.js"></script>
+    <script src="~/Scripts/js/app.js"></script>
+}

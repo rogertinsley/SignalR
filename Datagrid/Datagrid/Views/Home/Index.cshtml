@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Datagrid.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (!Model.Any())
+{
+    <p>There are no customers in the database!</p>
+}
+else
+{
+    <table class="table table-striped">
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HouseNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Street)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Town)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostCode)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr data-edit-row-id="@item.Id">
+                <td><a class="edit" href="#"><i class="icon-edit"></i></a></td>
+                <td class="editable firstname">
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td class="editable surname">
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td class="editable housenumber">
+                    @Html.DisplayFor(modelItem => item.HouseNumber)
+                </td>
+                <td class="editable street">
+                    @Html.DisplayFor(modelItem => item.Street)
+                </td>
+                <td class="editable town">
+                    @Html.DisplayFor(modelItem => item.Town)
+                </td>
+                <td class="editable postcode">
+                    @Html.DisplayFor(modelItem => item.PostCode)
+                </td>
+            </tr>
+        }
+    </table>
+}
