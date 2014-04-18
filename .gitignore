@@ -13,7 +13,7 @@ PublishProfiles
 [Tt]humbs.db 
 _ReSharper.*
 *.resharper
-packages
+packages/
 _bin_deployableAssemblies
 
 out
